@@ -31,10 +31,9 @@ export default styled.div<IProps>`
     `}
 
     ${({ page }) =>
-      page === 'form' &&
-      css`
-      width: 100vw;
-      height: 100vh;
-      }
+    page === 'form' &&
+    css`
+        width: 100vw;
+        height: 100vh;
     `}
 `;

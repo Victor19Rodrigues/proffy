@@ -2,7 +2,6 @@ import React, { FC, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import Switch from 'react-switch';
 import { ThemeContext } from 'styled-components';
-import { shade } from 'polished';
 
 import { useTheme } from '../../hooks/theme';
 
@@ -13,9 +12,10 @@ import { Header, TopBar, HeaderContent } from './styles';
 
 interface IProps {
   title: string;
+  description?: string;
 }
 
-const PageHeader: FC<IProps> = ({ title, children }) => {
+const PageHeader: FC<IProps> = ({ title, description, children }) => {
   const {
     title: themeTitle,
     colors: { colorBackground },
@@ -46,8 +46,9 @@ const PageHeader: FC<IProps> = ({ title, children }) => {
         </div>
       </TopBar>
 
-      <HeaderContent>
+      <HeaderContent className="header-content">
         <strong>{title}</strong>
+        {description && <p>{description}</p>}
 
         {children}
       </HeaderContent>

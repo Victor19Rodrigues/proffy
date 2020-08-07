@@ -11,7 +11,7 @@ export default {
     colorLineInWhite: '#E6E6F0',
     colorInputBackground: '#F8F8FC',
     colorButtonText: '#FFFFFF',
-    colorBoxBase: '#FFFFFF',
+    colorBoxBase: '#FFF',
     colorBoxFooter: '#FAFAFC',
   },
 };

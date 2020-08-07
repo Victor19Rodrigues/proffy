@@ -12,6 +12,6 @@ export default {
     colorInputBackground: '#121212',
     colorButtonText: '#121212',
     colorBoxBase: '#181818',
-    colorBoxFooter: '#121212',
+    colorBoxFooter: '#212121',
   },
 };
