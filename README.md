@@ -81,9 +81,14 @@ $ git clone https://github.com/Victor19Rodrigues/proffy.git
 $ cd proffy/server
 
 # Install dependencies
-$ yarn install
+$ yarn
+```
+In order to connect to the database, you will need to enter the access informations into a ormconfig.json. You can find more about it [here](https://typeorm.io/#/using-ormconfig).
+```bash
+# Run migrations
+$ yarn typeorm migration:run
 
-# Run aplication
+# Run api
 $ yarn start
 ```
 Access API at http://localhost:3333/
