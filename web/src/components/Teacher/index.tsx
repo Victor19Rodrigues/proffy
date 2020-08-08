@@ -1,41 +1,49 @@
-import React from 'react';
+import React, { FC, useCallback } from 'react';
 
 import whatsappIcon from '../../assets/icons/whatsapp.svg';
+import { IInfosClasses } from '../../pages/TeacherList';
 
 import { Container } from './styles';
+import api from '../../services/api';
 
-const Teacher: React.FC = () => {
+interface ITeacherItem {
+  teacher: IInfosClasses
+}
+
+const Teacher: FC<ITeacherItem> = ({ teacher }) => {
+  const handleCreateNewConnection = useCallback(() => {
+    api.post('connections', {
+      user_id: teacher.id,
+    });
+  }, [teacher]);
+
   return (
     <Container>
       <header>
-        <img
-          src="https://avatars0.githubusercontent.com/u/20098968?s=460&u=db2ae0cd1d9f3d84b5ba9ef25319371f683005cb&v=4"
-          alt="Victor Rodrigues da Silva"
-        />
+        <img src={teacher.avatar} alt={teacher.name} />
 
         <div>
-          <strong>Victor Rodrigues da Silva</strong>
-          <span>Química</span>
+          <strong>{teacher.name}</strong>
+          <span>{teacher.subject}</span>
         </div>
       </header>
 
-      <p>
-        Entusiasta das melhores tecnologias de matemática avançada.
-        <br />
-        <br />
-        Apaixonado por explodir coisas em laboratório e por mudar a vida das
-        pessoas através de experiências.
-      </p>
+      <p>{teacher.bio}</p>
 
       <footer>
         <p>
           Preço:
-          <strong>R$ 80,00</strong>
+          <strong>R$ {teacher.cost}</strong>
         </p>
-        <button type="button">
+        <a
+          target="_blank"
+          rel="noreferrer noopener"
+          onClick={handleCreateNewConnection}
+          href={`https://wa.me/${teacher.whatsapp}`}
+        >
           <img src={whatsappIcon} alt="Whatsapp" />
           Entrar em contato
-        </button>
+        </a>
       </footer>
     </Container>
   );

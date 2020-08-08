@@ -22,7 +22,7 @@ export default createGlobalStyle`
     --color-button-text: ${({ theme }) => theme.colors.colorButtonText};
     --color-box-base: ${({ theme }) => theme.colors.colorBoxBase};
     --color-box-footer: ${({ theme }) => theme.colors.colorBoxFooter};
-
+    --color-icons: ${({ theme }) => theme.colors.iconsColor};
     font-size: 60%;
   }
 
@@ -43,6 +43,15 @@ export default createGlobalStyle`
     justify-content: center;
   }
 
+  body {
+    text-rendering: optimizeLegibility !important;
+    -webkit-font-smoothing: antialiased !important;
+    -moz-osx-font-smoothing: grayscale !important;
+    background: var(--color-background);
+
+    transition: all 0.08s ease-in-out;
+  }
+
  body, input, button, textarea, input::placeholder, textarea::placeholder {
     font: 500 1.6rem Poppins, sans-serif;
     border: 0;
@@ -50,8 +59,13 @@ export default createGlobalStyle`
       theme.title === 'light' ? 'var(--color-text-base)' : '#ccc'};
   }
 
-  body {
-    background: var(--color-background);
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:focus,
+  input:-webkit-autofill:active  {
+    -webkit-box-shadow: 0 0 0px 1000px var(--white) inset;
+    -webkit-transition: "color 9999s ease-out, background-color 9999s ease-out";
+    -webkit-transition-delay: 9999s;
   }
 
   a {
@@ -69,6 +83,12 @@ export default createGlobalStyle`
   @media (min-width: 700px) {
     :root {
       font-size: 62.5%;
+    }
+  }
+
+  @media (max-width: 420px) {
+    :root {
+      font-size: 55.5%;
     }
   }
 `;

@@ -2,100 +2,111 @@ import styled from 'styled-components';
 
 export const Main = styled.main`
   background: var(--color-box-base);
-  width: 100%;
-  max-width: 74rem;
+  width: min(100%, 74rem);
   border-radius: 0.8rem;
   margin: -3.2rem auto 3.2rem;
   padding-top: 6.4rem;
   overflow: hidden;
 
-  label {
-    color: var(--color-text-complement);
-  }
-
-  fieldset {
-    border: 0;
-    padding: 0 2.4rem;
-  }
-
-  fieldset + fieldset {
-    margin-top: 6.4rem;
-  }
-
-  @media (min-width: 700px) {
+  > form {
     > fieldset {
-      padding: 0 6.4rem;
+      border: 0;
+      padding: 0 2.4rem;
+
+      > legend {
+        font: 700 2.4rem Archivo;
+        width: 100%;
+
+        color: var(--color-text-title);
+        margin-bottom: 2.4rem;
+        padding-bottom: 1.6rem;
+        border-bottom: 1px solid var(--color-line-in-white);
+
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        > button {
+          background: none;
+          color: var(--color-primary);
+          font: 700 1.6rem Archivo;
+
+          transition: color 0.2s;
+
+          &:hover {
+            color: var(--color-primary-dark);
+          }
+        }
+      }
     }
+    > fieldset + fieldset {
+      margin-top: 6.4rem;
+    }
+
     > footer {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 4rem 6.4rem;
+      padding: 4rem 2.4rem;
+      margin-top: 6.4rem;
+      border-top: 1px solid var(--color-line-in-white);
+      background: var(--color-box-footer);
 
       > p {
-        justify-content: space-between;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.4rem;
+        line-height: 1.4rem;
+        color: var(--color-text-complement);
+
+        > img {
+          margin-right: 2rem;
+        }
       }
 
       > button {
-        width: 20rem;
-        margin-top: 0;
+        width: 100%;
+        height: 5.6rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font: 700 1.6rem Archivo;
+        background: var(--color-secundary);
+        color: var(--color-button-text);
+        border: 0;
+        border-radius: 0.8rem;
+        margin-top: 3.2rem;
+
+        transition: background-color 0.2rem;
+
+        &:hover {
+          background: var(--color-secundary-dark);
+        }
+      }
+    }
+  }
+
+  @media (min-width: 700px) {
+    > form {
+      > fieldset {
+        padding: 0 6.4rem;
+      }
+      > footer {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 4rem 6.4rem;
+
+        > p {
+          justify-content: space-between;
+        }
+
+        > button {
+          width: 20rem;
+          margin-top: 0;
+        }
       }
     }
   }
 `;
-
-export const TitleForm = styled.legend`
-  font: 700 2.4rem Archivo;
-  color: var(--color-text-title);
-  margin-bottom: 2.4rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-  padding-bottom: 1.6rem;
-  border-bottom: 1px solid var(--color-line-in-white);
-`;
-
-export const Footer = styled.footer`
-  padding: 4rem 2.4rem;
-  background: var(--color-box-footer);
-  border-top: 1px solid var(--color-line-in-white);
-  margin-top: 6.4rem;
-
-  p {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.4rem;
-    line-height: 2.4rem;
-    color: var(--color-text-complement);
-
-    img {
-      margin-right: 2rem;
-    }
-  }
-
-  button {
-    width: 100%;
-    height: 5.6rem;
-    background: var(--color-secundary);
-    color: var(--color-button-text);
-    border: 0;
-    border-radius: 0.8rem;
-    cursor: pointer;
-    font: 700 1.6rem Archivo;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-decoration: none;
-    transition: background-color 0.2s;
-    margin-top: 3.2rem;
-  }
-
-  button:hover {
-    background: var(--color-secundary-dark);
-  }
-`
 
 export const ScheduleItem = styled.div`
   @media (min-width: 700px) {
